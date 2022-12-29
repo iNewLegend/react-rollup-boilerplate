@@ -1,7 +1,4 @@
-# react-rollup-boilerplate
 ## Modern & Up-to-date Rollup React boilerplate with typescript
-
-----
 # Install
 
 ```bash
