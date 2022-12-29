@@ -6,13 +6,11 @@ import babel from '@rollup/plugin-babel';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript'
+import commonjs from "@rollup/plugin-commonjs";
 
 const extensions = [ '.ts', '.tsx' ],
-    external = [ 'react', 'react-dom' ],
-    globals = {
-        react: 'React',
-        'react-dom': 'ReactDOM',
-    }
+    external = [],
+    globals = {}
 
 const iife: RollupOptions = {
     external,
@@ -24,12 +22,13 @@ const iife: RollupOptions = {
         sourcemap: true,
     },
     plugins: [
+        commonjs(),
         nodeResolve( {
             extensions: [ ".ts", ".tsx" ],
         } ),
         replace( {
             'process.env.NODE_ENV': JSON.stringify( 'development' ),
-            preventAssignment: true,
+            preventAssignment: false,
         } ),
         typescript(),
         babel( {
