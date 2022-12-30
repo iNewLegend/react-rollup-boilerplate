@@ -10,7 +10,7 @@ cd react-rollup-boilerplate
 ```
 
 ```bash
-cd npm i
+npm i
 ```
 
 ```bash
